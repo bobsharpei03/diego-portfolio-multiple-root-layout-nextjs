@@ -1,23 +1,38 @@
 import { useEffect, useState } from "react";
-import SwiperCore, { Autoplay, EffectFade, Navigation, Pagination } from "swiper";
+import SwiperCore, { Autoplay, EffectFade, Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fatchData } from "../utilits";
 import dynamic from "next/dynamic";
 
-SwiperCore.use([Pagination, Navigation, EffectFade, Autoplay]);
-
 const Testimonial = () => {
   const [data, setData] = useState([]);
+  const [swiperOptions, setSwiperOptions] = useState(null);
 
   const myFunction = async () => {
     setData(await fatchData("/static/testimonial.json"));
-  }  
-
+  }
   useEffect(() => {
     myFunction();
-  }, []); 
-  
+    setTimeout(() => {
+      setSwiperOptions({
+        modules: [Autoplay, Navigation, Pagination, A11y],
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        slidesPerView: 1,
+        loop: true,
+        pagination: {
+          el: ".owl-dots",
+          clickable: true,}
+      });
+    }, 1000);
+  },
+  []); 
+  /*
   const props = {
+    modules: [Autoplay, Navigation, Pagination, A11y],
+    autoplay: { delay: 10000, disableOnInteraction: false},
     slidesPerView: 1,
     loop: true,
     pagination: {
@@ -25,10 +40,11 @@ const Testimonial = () => {
       clickable: true,
     },
   };
-
+*/
   return (
-    <div className="dizme_tm_section">
+    <div className="dizme_tm_section" id="testimonial">
       <div className="dizme_tm_testimonials">
+      <div className="container">
         <div className="dizme_tm_main_title" data-align="center">
           <span>Testimonials</span>
           <h3>What My Clients Say</h3>
@@ -40,11 +56,12 @@ const Testimonial = () => {
         <div className="list_wrapper">
           <div className="total">
             <div className="in">
-              <Swiper {...props} className="">
-                {data &&
-                  data.map((data, i) => (
+            <div className="owl-dots"></div>
+            {swiperOptions && (
+              <Swiper {...swiperOptions} autoplay={swiperOptions.autoplay}>
+                {data && data.map((data, i) => (
                     <SwiperSlide key={i}>
-                      <div className="icon">
+{/*                 <div className="icon">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -64,7 +81,7 @@ const Testimonial = () => {
                             <path d="M996,749.739v-40.948c-49.19,0-89.209,40.019-89.209,89.209v89.209H996V798h-48.26   C947.74,771.39,969.39,749.739,996,749.739z" />
                           </g>
                         </svg>
-                      </div>
+                      </div>*/}
                       <div className="text">
                         <p>{data.details}</p>
                       </div>
@@ -80,10 +97,10 @@ const Testimonial = () => {
                     </SwiperSlide>
                   ))}
               </Swiper>
-              <div className="owl-dots"></div>
+            )}
             </div>
             <div className="left_details">
-              <div
+              {/*<div
                 className="det_image one wow fadeIn"
                 data-wow-duration="1s"
                 data-img-url="img/testimonials/2.jpg"
@@ -105,13 +122,13 @@ const Testimonial = () => {
                 data-wow-duration="1s"
                 data-wow-delay="0.6s"
                 data-img-url="img/testimonials/4.jpg"
-              />
+              />*/}
               <span className="circle green animPulse" />
               <span className="circle yellow animPulse" />
               <span className="circle border animPulse" />
             </div>
             <div className="right_details">
-              <div
+              {/*<div
                 className="det_image one wow fadeIn"
                 data-wow-duration="1s"
                 data-img-url="img/testimonials/5.jpg"
@@ -127,7 +144,7 @@ const Testimonial = () => {
                 data-wow-duration="1s"
                 data-wow-delay="0.4s"
                 data-img-url="img/testimonials/7.jpg"
-              />
+              />*/}
               <span className="circle yellow animPulse" />
               <span className="circle purple animPulse" />
               <span className="circle border animPulse" />
@@ -136,6 +153,7 @@ const Testimonial = () => {
         </div>
         <div className="brush_1 wow fadeInRight" data-wow-duration="1s">
           <img src="img/brushes/testimonials/1.png" alt="image" />
+        </div>
         </div>
       </div>
     </div>

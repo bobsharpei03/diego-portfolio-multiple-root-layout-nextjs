@@ -36,23 +36,24 @@ const Page = () => {
       {/* PROCESS */}
       <Process />
       {/* PORTFOLIO */}
-      <Portfolio />
+      {/*<Portfolio />*/}
       {/* /PORTFOLIO */}
       {/* SKILLS */}
       <Skills />
+      <Partners />
       {/* /SKILLS */}
       {/* SERVICES */}
-      <Service />
+      {/*<Service />*/}
       {/* /SERVICES */}
       {/* TESTIMONIALS */}
       <Testimonial />
       {/* /TESTIMONIALS */}
       {/* PARTNERS */}
-      <Partners />
+      
       {/* /PARTNERS */}
       {/* NEWS */}
-      <News />
-      <Newsletter />
+      {/*<News />*/}
+      {/*<Newsletter />*/}
       <Contact />
     </Layout>
   );

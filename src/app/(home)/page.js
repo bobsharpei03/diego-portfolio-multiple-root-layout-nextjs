@@ -20,9 +20,9 @@ export default function Home() {
             <span className="anim" />
             <span className="anim" />
             <span className="anim" />
-            <a href="#" target="_blank" className="pricing-info anim">
+            {/*<a href="#" target="_blank" className="pricing-info anim">
               -20%
-            </a>
+            </a>*/}
           </div>
           <div className="short_info">
             <img src="img/logo/logo.png" alt="image" />

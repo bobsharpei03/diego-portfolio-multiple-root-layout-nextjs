@@ -9,7 +9,6 @@ const Home = ({ dark }) => {
   const myFunction = async () => {
     setData(await fatchData("/static/info.json"));
   }
-
   useEffect(() => {
     myFunction();
   }, []);
@@ -24,15 +23,17 @@ const Home = ({ dark }) => {
           <div className="content">
             <div className="details">
               <div className="hello">
-                <h3 className="greenText">{`Hello, I'm`}</h3>
+                <h3 className="greenText">{`Hello there, I'm`}</h3>
               </div>
               <div className="name">
                 <h3>{data && data.name ? data.name : "name"}</h3>
               </div>
               <div className="job">
                 <p>
-                  A <span className="orangeText">{data && data.mainSkill}</span>{" "}
-                  In The <span className="orangeText">{data.address}</span>
+                  <span className="orangeText">{data && data.mainSkill}</span>{" "}
+                  <span>working in</span>
+                    <br/>
+                  <span className="orangeText">{data.address}</span>
                 </p>
               </div>
               <div className="text">

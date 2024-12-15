@@ -148,7 +148,6 @@ export const scroll_ = () => {
       current = section.getAttribute("id");
     }
   });
-
   navLi.forEach((li) => {
     li.classList.remove("current");
     if (li.getElementsByTagName("a")[0].getAttribute("href") == `#${current}`) {
@@ -156,6 +155,7 @@ export const scroll_ = () => {
     }
   });
 };
+
 export const stickyNav = () => {
   let offset = window.scrollY;
   const stickys = document.querySelectorAll(".dizme_tm_header");

@@ -29,7 +29,7 @@ const Skills = ({ dark }) => {
                 data-wow-duration="1s"
                 data-align="left"
               >
-                <span>Design is Life</span>
+                <span>Coding is my Life</span>
                 <h3>I Develop Skills Regularly to Keep Me Update</h3>
                 <p>
                   Most common methods for designing websites that work well on

@@ -47,10 +47,15 @@ body {
   color: #6f6b80;
 }
 
+#specialsvg {
+  fill: currentcolor;
+  width: 300px;
+  height: 505px;
+}
 svg {
   fill: currentcolor;
-  width: 15px;
-  height: 15px;
+  width: 80px;
+  height: 201px;
 }
 img.svg {
   width: 15px;
@@ -406,6 +411,8 @@ h6 {
   max-height: 80px;
 }
 .dizme_tm_header .menu ul {
+  font-size: 20px;
+  /*padding-left: 300px;*/
   margin: 0px;
   list-style-type: none;
   display: flex;
@@ -425,6 +432,38 @@ h6 {
   color: #f75023;
 }
 .dizme_tm_header .menu ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-family: "Jost", sans-serif;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.dizme_tm_header .resume ul {
+  /*padding-left: 300px;*/
+  margin: 0px;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+.dizme_tm_header .resume ul li {
+  margin: 0px 48px 0px 0px;
+  display: inline-block;
+}
+.dizme_tm_header .resume ul li:last-child {
+  margin-right: 0px;
+}
+.dizme_tm_header .resume ul li.current a {
+  color: #f75023;
+}
+.dizme_tm_header .resume ul li a:hover {
+  color: #f75023;
+}
+.dizme_tm_header .resume ul li a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
@@ -545,16 +584,16 @@ h6 {
   font-size: 45px;
 }
 .dizme_tm_hero .name {
-  margin-bottom: 18px;
+  margin-bottom: -2px;
 }
 .dizme_tm_hero .name h3 {
-  font-size: 85px;
+  font-size: 63px;
 }
 .dizme_tm_hero .job {
-  margin-bottom: 35px;
+  margin-bottom: 10px;
 }
 .dizme_tm_hero .job p {
-  font-size: 28px;
+  font-size: 22px;
   color: #000;
   font-weight: 500;
 }
@@ -562,7 +601,7 @@ h6 {
   margin-bottom: 42px;
 }
 .dizme_tm_hero .text p {
-  font-size: 23px;
+  font-size: 18px;
   line-height: 1.5;
 }
 .dizme_tm_hero .button {
@@ -650,7 +689,7 @@ h6 {
   padding-left: 100px;
 }
 .dizme_tm_hero .avatar img {
-  max-height: 650px;
+  max-height: 500px;
 }
 .dizme_tm_hero .skills {
   display: inline-block;
@@ -922,8 +961,8 @@ h6 {
 }
 .dizme_tm_about .right .title span {
   display: inline-block;
-  color: #f75023;
-  font-size: 24px;
+  color: #1db645;
+  font-size: 42px;
   font-weight: 500;
   font-family: "Jost", sans-serif;
   margin-bottom: 6px;
@@ -1755,7 +1794,8 @@ h6 {
   height: auto;
   clear: both;
   float: left;
-  margin-bottom: 187px;
+  padding-top: 135px;
+  margin-bottom: 7px;
   position: relative;
 }
 .dizme_tm_testimonials .list_wrapper {
@@ -1764,7 +1804,7 @@ h6 {
   clear: both;
   float: left;
   position: relative;
-  margin-top: 80px;
+  margin-top: 24px;
 }
 .dizme_tm_testimonials .in {
   width: 100%;
@@ -1976,7 +2016,7 @@ h6 {
 }
 .dizme_tm_testimonials .right_details .circle.yellow {
   background-color: #f0c45c;
-  top: -173px;
+  top: -155px;
   right: 263px;
 }
 .dizme_tm_testimonials .right_details .circle.purple {
@@ -2362,15 +2402,15 @@ h6 {
   height: auto;
   clear: both;
   float: left;
-  padding-top: 190px;
-  margin-bottom: 200px;
+  padding-top: 150px;
+  /*margin-bottom: 200px;*/
   position: relative;
 }
 .dizme_tm_contact .contact_inner {
   width: 100%;
   display: flex;
-  margin-top: 80px;
-  margin-bottom: 182px;
+  margin-top: 20px;
+  margin-bottom: 82px;
   position: relative;
 }
 .dizme_tm_contact .left {
@@ -2885,10 +2925,11 @@ input[type="number"] {
     max-height: 70px;
   }
   .dizme_tm_header .menu ul li {
-    margin-right: 30px;
+    /*margin-right: 30px;*/
   }
   .dizme_tm_hero .hello h3 {
     font-size: 25px;
+    margin-bottom: -10px;
   }
   .dizme_tm_hero .name h3 {
     font-size: 60px;
@@ -2946,7 +2987,7 @@ input[type="number"] {
     height: 45px;
   }
   .dizme_tm_about .right .title span {
-    font-size: 22px;
+    font-size: 32px;
   }
   .dizme_tm_about .right .title h3 {
     font-size: 40px;
@@ -2998,7 +3039,7 @@ input[type="number"] {
     right: 68px;
   }
   .dizme_tm_testimonials .right_details .circle.yellow {
-    right: 210px;
+    right: 150px;
   }
   .dizme_tm_testimonials .right_details .circle.yellow {
     width: 55px;

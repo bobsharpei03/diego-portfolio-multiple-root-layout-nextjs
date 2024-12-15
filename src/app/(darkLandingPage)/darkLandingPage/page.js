@@ -28,29 +28,30 @@ const Page = () => {
       <Home dark />
       {/* HERO */}
       {/* PROCESS */}
-      <Process dark />
       {/* /PROCESS */}
       {/* ABOUT */}
       <About dark />
       {/* /ABOUT */}
       {/* PORTFOLIO */}
-      <Portfolio />
+      <Process dark />
+      {/*<Portfolio />*/}
       {/* /PORTFOLIO */}
       {/* SKILLS */}
       <Skills dark />
+      <Partners dark />
       {/* /SKILLS */}
       {/* SERVICES */}
-      <Service dark />
+      {/*<Service dark />*/}
       {/* /SERVICES */}
       {/* TESTIMONIALS */}
       <Testimonial />
       {/* /TESTIMONIALS */}
       {/* PARTNERS */}
-      <Partners dark />
+      
       {/* /PARTNERS */}
       {/* NEWS */}
-      <News />
-      <Newsletter />
+      {/*<News />*/}
+      {/*<Newsletter />*/}
       <Contact />
     </Layout>
   );
