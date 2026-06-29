@@ -1,19 +1,24 @@
 "use client"; // This is a client component
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { Fragment } from "react";
-import Cursor from "./Layout/Cursor";
-import PreLoader from "./Layout/PreLoader";
-import NestedLayout from '../(lightLandingPage)/layout'
+import Cursor from "../Layout/Cursor";
+import PreLoader from "../Layout/PreLoader";
+//import NestedLayout from '../../(lightLandingPage)/layout'
 
 export default function Home() {
+  useEffect(()=>{
+    document.body.classList.remove("dark");
+  },[]);
+  
   return (
     <Fragment>
       <Head>
         <title>Diego Maquill | Intro</title>
       </Head>
-      <PreLoader />
+      {/*<PreLoader />*/}
       <div className="dizme_tm_all_wrap" data-magic-cursor="show">
         <div className="dizme_tm_intro">
           <div className="dizme_tm_intro_fixed_price">

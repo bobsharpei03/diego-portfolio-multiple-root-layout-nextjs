@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
-import { activeSkillProgress, fatchData } from "../utilits";
+import { fatchData } from "../utilits";
+import useSkillProgress from "../app/hooks/useSkillProgress";
 import dynamic from "next/dynamic";
 
 const Skills = ({ dark }) => {
   const [data, setData] = useState({});
   const [isBrowser, setIsBrowser] = useState(false);
 
-  useEffect( () => {
-    setData( fatchData("/static/info.json"));
-  }, []);
-  //
+  useSkillProgress(); //CORRECT
+
   useEffect(() => {
-    window.addEventListener("scroll", activeSkillProgress);
+    const myFunction = async () => {
+    setData( fatchData("/static/info.json"));
+  };
+  //
+  //useEffect(() => {
+    myFunction();
+    //window.addEventListener("scroll", useSkillProgress);
     setIsBrowser(true);
   }, []);
-   if(!isBrowser){
-    return null;
-  }
+
+  if(!isBrowser) return null;
 
   return (
     <div className="dizme_tm_section">

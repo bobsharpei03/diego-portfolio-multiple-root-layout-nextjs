@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { aTagClick, fatchData } from "../utilits";
+import { fatchData } from "../utilits";
+import aTagClick from "../app/hooks/useDisableEmptyLinks";
 import BlogPopUp from "./popup/BlogPopUp";
 import dynamic from "next/dynamic";
 

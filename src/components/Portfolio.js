@@ -1,12 +1,14 @@
 import Isotope from "isotope-layout";
 import { useEffect, useRef, useState } from "react";
-import { dataImage, portfolioHover } from "../utilits";
+//import { dataImage, portfolioHover } from "../utilits";
+import useDataImage from "../app/hooks/useDataImage";
+import usePortfolioHover from "../app/hooks/usePortfolioHover";
 import DetailsPopup from "./popup/DetailsPopup";
 
 const Portfolio = () => {
   useEffect(() => {
-    dataImage();
-    portfolioHover();
+    useDataImage();
+    usePortfolioHover();
   }, []);
 
   // Isotope

@@ -1,221 +1,253 @@
-import { stringify } from "postcss";
-import ReactDOM from "react-dom";
-///
-const preloader_ = () => {
-  let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
-    navigator.userAgent
-  )
-    ? true
-    : false;
-  let preloader = document.getElementById("preloader");
+// All utilities are now React 18 + Next.js 16 safe
+// No findDOMNode, no deprecated APIs
 
-  if (preloader) {
-    if (!isMobile) {
-      setTimeout(function () {
-        preloader.classList.add("preloaded");
-      }, 800);
-      setTimeout(function () {
-        preloader.remove();
-      }, 2000);
-    } else {
-      preloader.remove();
-    }
-  }
+// ------------------------------
+// FETCH DATA
+// ------------------------------
+export const fatchData = async (url) => {
+  const res = await fetch(url);
+  return res.json();
 };
-
-export const wowJsAnimation = () => {
-  setTimeout(() => {
-    if (typeof window !== "undefined") {
-      window.WOW = require("wowjs");
-    }
-    new WOW.WOW().init();
-  }, 500);
-};
-export const customCursor = () => {
-  var myCursor = document.querySelectorAll(".mouse-cursor"),
-    hamburger = document.querySelector(".hamburger"),
-    kura_tm_topbar = document.querySelector(".kura_tm_topbar "),
-    pointer = document.querySelector(".cursor-pointer"),
-    e = document.querySelector(".cursor-inner"),
-    t = document.querySelector(".cursor-outer");
-
-  function mouseEvent(element) {
-    ReactDOM.findDOMNode(element).addEventListener("mouseenter", function () {
-      e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
-    });
-    ReactDOM.findDOMNode(element).addEventListener("mouseleave", function () {
-      e.classList.remove("cursor-hover"), t.classList.remove("cursor-hover");
-    });
-  }
-  if (myCursor.length) {
-    if (document.body) {
-      let n,
-        i = 0,
-        o = !1;
-      (window.onmousemove = function (s) {
-        // console.log(document.querySelector(this));
-        o ||
-          (t.style.transform =
-            "translate(" + s.clientX + "px, " + s.clientY + "px)"),
-          (e.style.transform =
-            "translate(" + s.clientX + "px, " + s.clientY + "px)"),
-          (n = s.clientY),
-          (i = s.clientX);
-      }),
-        document.body.addEventListener(
-          "mouseenter",
-          // "a,.kura_tm_topbar .trigger, .cursor-pointer",
-          function () {
-            let a = document.querySelectorAll("a");
-            e.classList.add("cursor-inner"), t.classList.add("cursor-outer");
-
-            for (let i = 0; i < a.length; i++) {
-              const element = a[i];
-              mouseEvent(element);
-            }
-
-            hamburger && mouseEvent(hamburger);
-            kura_tm_topbar && mouseEvent(kura_tm_topbar);
-            pointer && mouseEvent(pointer);
-          }
-        ),
-        (e.style.visibility = "visible"),
-        (t.style.visibility = "visible");
-    }
-  }
-};
-
+/*
+// ------------------------------
+// PRELOADER
+// ------------------------------
 export const preloader = () => {
-  preloader_();
+  if (typeof window === "undefined") return;
+
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
+    navigator.userAgent
+  );
+
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
+
+  if (!isMobile) {
+    setTimeout(() => preloader.classList.add("preloaded"), 800);
+    setTimeout(() => preloader.remove(), 2000);
+  } if (preloader && preloader.parentNode) {
+  preloader.parentNode.removeChild(preloader);
+}
+
   setTimeout(() => {
-    document.querySelector("body").classList.add("opened");
+    document.body.classList.add("opened");
   }, 3000);
 };
 
-export const aTagClick = () => {
-  const aTag = document.querySelectorAll("[href='#']");
-  for (let i = 0; i < aTag.length; i++) {
-    const a = aTag[i];
-    ReactDOM.findDOMNode(a).addEventListener("click", (e) => {
-      e.preventDefault();
+// ------------------------------
+// WOW JS ANIMATION
+// ------------------------------
+export const wowJsAnimation = () => {
+  if (typeof window === "undefined") return;
+
+  // Prevent multiple initializations
+  if (window.__wow_initialized__) return;
+  window.__wow_initialized__ = true;
+
+  // Disable WOW.js DOM mutation watching
+  window.MutationObserver = null;
+
+  setTimeout(() => {
+    const WOW = require("wowjs");
+
+    const wow = new WOW.WOW({
+      live: false,      // do NOT watch DOM changes
+      mobile: false,    // optional: prevents mobile crashes
+      scrollContainer: null,
+      resetAnimation: false, // <--- CRITICAL: prevents removeChild()
     });
-  }
+
+    wow.init();
+  }, 500);
 };
+
+// ------------------------------
+// CUSTOM CURSOR (NO findDOMNode)
+// ------------------------------
+export const customCursor = () => {
+  if (typeof window === "undefined") return;
+
+  const inner = document.querySelector(".cursor-inner");
+  const outer = document.querySelector(".cursor-outer");
+
+  if (!inner || !outer) return;
+
+  // Move cursor
+  window.addEventListener("mousemove", (e) => {
+    const { clientX, clientY } = e;
+    inner.style.transform = `translate(${clientX}px, ${clientY}px)`;
+    outer.style.transform = `translate(${clientX}px, ${clientY}px)`;
+  });
+
+  // Hover effects
+  const addHover = (el) => {
+    if(!el) return;
+    el.addEventListener("mouseenter", () => {
+      inner.classList.add("cursor-hover");
+      outer.classList.add("cursor-hover");
+    });
+    el.addEventListener("mouseleave", () => {
+      inner.classList.remove("cursor-hover");
+      outer.classList.remove("cursor-hover");
+    });
+  };
+
+  document.querySelectorAll("a, .cursor-pointer, .hamburger, .kura_tm_topbar")
+    .forEach(addHover);
+
+  inner.style.visibility = "visible";
+  outer.style.visibility = "visible";
+};
+
+// ------------------------------
+// DISABLE EMPTY LINKS
+// ------------------------------
+export const aTagClick = () => {
+  if (typeof window === "undefined") return;
+
+  document.querySelectorAll("[href='#']").forEach((a) => {
+    a.addEventListener("click", (e) => e.preventDefault());
+  });
+};
+
+// ------------------------------
+// SKILL PROGRESS
+// ------------------------------
 export const activeSkillProgress = () => {
-  const progress_inner = document.querySelectorAll(".skillsInner___"),
-    triggerBottom = (window.innerHeight / 5) * 5;
-  progress_inner.forEach((box) => {
-    const boxTop = box.getBoundingClientRect().top,
-      boxElement = box.getElementsByClassName("bar"),
-      label = box.getElementsByClassName("label"),
-      number = box.getElementsByClassName("number"),
-      boxItem = boxElement[0],
-      pWidth = box.getAttribute("data-value"),
-      pColor = box.getAttribute("data-color");
-    if (boxTop < triggerBottom) {
-      boxItem.classList.add("open");
-      label[0].classList.add("opened");
-      number[0].style.right = `${100 - pWidth}%`;
-      boxItem.getElementsByClassName("bar_in")[0].style.width = `${pWidth}%`;
-      boxItem.getElementsByClassName("bar_in")[0].style.backgroundColor =
-        pColor;
+  if (typeof window === "undefined") return;
+
+  const items = document.querySelectorAll(".skillsInner___");
+  const triggerBottom = window.innerHeight * 0.8;
+
+  items.forEach((box) => {
+    const rect = box.getBoundingClientRect();
+    const bar = box.querySelector(".bar");
+    const label = box.querySelector(".label");
+    const number = box.querySelector(".number");
+
+    const width = box.getAttribute("data-value");
+    const color = box.getAttribute("data-color");
+
+    if (rect.top < triggerBottom) {
+      bar.classList.add("open");
+      label.classList.add("opened");
+      number.style.right = `${100 - width}%`;
+
+      const barIn = bar.querySelector(".bar_in");
+      barIn.style.width = `${width}%`;
+      barIn.style.backgroundColor = color;
     } else {
-      boxItem.classList.remove("open");
-      label[0].classList.remove("opened");
-      number[0].style.right = `${120}%`;
+      bar.classList.remove("open");
+      label.classList.remove("opened");
+      number.style.right = "120%";
     }
   });
 };
-// Data image
+
+// ------------------------------
+// DATA IMAGE
+// ------------------------------
 export const dataImage = () => {
-  let d = document.querySelectorAll("[data-img-url");
-  for (let i = 0; i < d.length; i++) {
-    const element = d[i];
-    element.style.backgroundImage = `url(${element.getAttribute(
-      "data-img-url"
-    )})`;
-  }
+  if (typeof window === "undefined") return;
+
+  document.querySelectorAll("[data-img-url]").forEach((el) => {
+    el.style.backgroundImage = `url(${el.getAttribute("data-img-url")})`;
+  });
 };
 
+// ------------------------------
+// SCROLL SPY
+// ------------------------------
 export const scroll_ = () => {
+  if (typeof window === "undefined") return;
+
   const sections = document.querySelectorAll(".dizme_tm_section");
-  const navLi = document.querySelectorAll(".anchor_nav li");
+  const navItems = document.querySelectorAll(".anchor_nav li");
+
   let current = "";
+
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= sectionTop - sectionHeight / 3) {
-      current = section.getAttribute("id");
+    const top = section.offsetTop;
+    const height = section.clientHeight;
+
+    if (scrollY >= top - height / 3) {
+      current = section.id;
     }
   });
-  navLi.forEach((li) => {
+
+  navItems.forEach((li) => {
     li.classList.remove("current");
-    if (li.getElementsByTagName("a")[0].getAttribute("href") == `#${current}`) {
-      li.classList.add("current");
-    }
+    const href = li.querySelector("a")?.getAttribute("href");
+    if (href === `#${current}`) li.classList.add("current");
   });
 };
 
+// ------------------------------
+// STICKY NAV
+// ------------------------------
 export const stickyNav = () => {
-  let offset = window.scrollY;
-  const stickys = document.querySelectorAll(".dizme_tm_header");
-  stickys.forEach((sticky) => {
-    if (sticky) {
-      if (offset > 100) {
-        sticky.classList.add("animate");
-      } else {
-        sticky.classList.remove("animate");
-      }
-    }
+  if (typeof window === "undefined") return;
+
+  const headers = document.querySelectorAll(".dizme_tm_header");
+  headers.forEach((header) => {
+    if (scrollY > 100) header.classList.add("animate");
+    else header.classList.remove("animate");
   });
 };
 
+// ------------------------------
+// SCROLL TOP PROGRESS
+// ------------------------------
 export const scrollTop = () => {
-  var bar = document.querySelector(".progressbar");
-  var line = document.querySelector(".progressbar .line");
-  var documentHeight = document.documentElement.scrollHeight;
-  var windowHeight = window.innerHeight;
-  var winScroll = window.scrollY;
-  var value = (winScroll / (documentHeight - windowHeight)) * 100;
-  var position = value;
-  if (winScroll > 100) {
+  if (typeof window === "undefined") return;
+
+  const bar = document.querySelector(".progressbar");
+  const line = document.querySelector(".progressbar .line");
+
+  if (!bar || !line) return;
+
+  const docHeight = document.documentElement.scrollHeight;
+  const winHeight = window.innerHeight;
+  const scrolled = scrollY;
+
+  const percent = (scrolled / (docHeight - winHeight)) * 100;
+
+  if (scrolled > 100) {
     bar.classList.add("animate");
-    line.style.height = position + "%";
+    line.style.height = `${percent}%`;
   } else {
     bar.classList.remove("animate");
   }
 };
 
-export const fatchData = async (url) => {
-  const res = await fetch(`${url}`);
-  const data = await res.json();
-  //console.log('####' + JSON.stringify(data));
-  return data;
-};
-
+// ------------------------------
+// PORTFOLIO HOVER
+// ------------------------------
 export const portfolioHover = () => {
-  const dizme_tm_portfolio_animation_wrap = document.querySelectorAll(
-      ".dizme_tm_portfolio_animation_wrap"
-    ),
-    dizme_tm_portfolio_titles = document.querySelector(
-      ".dizme_tm_portfolio_titles"
-    );
-  dizme_tm_portfolio_animation_wrap.forEach((element) => {
-    element.addEventListener("mousemove", () => {
-      let title = element.getAttribute("data-title"),
-        category = element.getAttribute("data-category");
+  if (typeof window === "undefined") return;
+
+  const items = document.querySelectorAll(".dizme_tm_portfolio_animation_wrap");
+  const titleBox = document.querySelector(".dizme_tm_portfolio_titles");
+
+  if (!titleBox) return;
+
+  items.forEach((item) => {
+    item.addEventListener("mousemove", (e) => {
+      const title = item.getAttribute("data-title");
+      const category = item.getAttribute("data-category");
+
       if (title) {
-        dizme_tm_portfolio_titles.classList.add("visible");
-        dizme_tm_portfolio_titles.innerHTML =
-          title + '<span class="work__cat">' + category + "</span>";
+        titleBox.classList.add("visible");
+        titleBox.innerHTML = `${title}<span class="work__cat">${category}</span>`;
       }
-      document.addEventListener("mousemove", (e) => {
-        dizme_tm_portfolio_titles.style.left = `${e.clientX - 10}px`;
-        dizme_tm_portfolio_titles.style.top = `${e.clientY + 25}px`;
-      });
+
+      titleBox.style.left = `${e.clientX - 10}px`;
+      titleBox.style.top = `${e.clientY + 25}px`;
     });
-    element.addEventListener("mouseleave", () => {
-      dizme_tm_portfolio_titles.classList.remove("visible");
+
+    item.addEventListener("mouseleave", () => {
+      titleBox.classList.remove("visible");
     });
   });
 };
+*/

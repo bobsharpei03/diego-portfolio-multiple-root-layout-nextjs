@@ -37,10 +37,12 @@ const Partners = ({ dark }) => {
                     key={i}
                     data-wow-delay={`0.${i + 1 * 2}s`}
                   >
-                    {/*<div className="list_inner">*/}
-                    <div className="" id="">
-                      {parse(img.logo && img.logo[dark ? "dark" : "light"])}
-                      <a className="dizme_tm_full_link" href={img.link} />
+                    <div className="list_inner">
+                    {/*<div className="" id="">*/}
+  {/*                    {parse(img.logo && img.logo[dark ? "dark" : "light"])} */}
+                      {/*parse((img.logo?.[dark ? "dark" : "light"] || "").replace(/<\/?(html|body|head|script|link|meta)[^>]*>/gi, ""))*/}
+                      <div className="svg_wrapper" dangerouslySetInnerHTML={{ __html: img.logo?.[dark ? "dark" : "light"] || "" }}></div>
+                      <a className="dizme_tm_full_link" href={img.link}></a>
                     </div>
                   </li>
                 ))}

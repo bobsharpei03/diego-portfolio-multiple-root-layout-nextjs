@@ -1,12 +1,14 @@
 "use client"; // This is a client component
 import { Fragment, useEffect } from "react";
-import { customCursor } from "../../utilits";
+//import { customCursor } from "../../utilits";
+import useCursor, { customCursor } from "../hooks/useCursor";
 import dynamic from "next/dynamic";
 
 const Cursor = () => {
-  useEffect(() => {
-    customCursor();
-  }, []);
+//  useEffect(() => {
+    //customCursor();
+    useCursor();
+//}, []);
 
   return (
     <Fragment>
