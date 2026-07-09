@@ -30,7 +30,7 @@ export default function Home() {
             </a>*/}
           </div>
           <div className="short_info">
-            <img src="img/logo/logo.png" alt="image" />
+            <img src="/img/logo/logo.png" alt="image" />
             <h3>Welcome to my Personal Portfolio</h3>
           </div>
           <span className="intro_line" />
@@ -39,14 +39,14 @@ export default function Home() {
           <div className="demos">
             <div className="left">
               <div className="desc">
-                <img src="img/intro/light.png" alt="image" />
+                <img src="/img/intro/light.png" alt="image" />
                 <h3 className="title">My Light Portfolio</h3>
               </div>
               <Link className="intro_link" href="/lightLandingPage" ></Link>
             </div>
             <div className="right">
               <div className="desc">
-                <img src="img/intro/dark.png" alt="image" />
+                <img src="/img/intro/dark.png" alt="image" />
                 <h3 className="title">My Dark Portfolio</h3>
               </div>
               <Link className="intro_link" href="/darkLandingPage"></Link>

@@ -13,7 +13,7 @@ const ServicePopup = ({ data, open, close }) => {
           <div className="description_wrap">
             <div className="service_popup_informations">
               <div className="image">
-                <img src="img/thumbs/4-2.jpg" alt="image" />
+                <img src="/img/thumbs/4-2.jpg" alt="image" />
                 <div
                   className="main"
                   data-img-url={data && data.img}

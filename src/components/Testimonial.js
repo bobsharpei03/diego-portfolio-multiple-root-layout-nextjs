@@ -45,10 +45,10 @@ const Testimonial = () => {
         <div className="container">
           <div className="dizme_tm_main_title" data-align="center">
             <span>Testimonials</span>
-            <h3>What My Clients Say</h3>
-            <p>
+            <h3>What Colleagues Says About Me</h3>
+          {/*  <p>
               Most common methods for designing websites that work well on desktop is responsive and adaptive design
-            </p>
+            </p>*/}
           </div>
           
           <div className="list_wrapper">
@@ -95,7 +95,7 @@ const Testimonial = () => {
           </div>
           
           <div className="brush_1 wow fadeInRight" data-wow-duration="1s">
-            <img src="img/brushes/testimonials/1.png" alt="image" />
+            <img src="/img/brushes/testimonials/1.png" alt="image" />
           </div>
         </div>
       </div>

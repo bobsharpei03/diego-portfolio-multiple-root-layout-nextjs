@@ -155,10 +155,10 @@ const Portfolio = () => {
                       className="popup-youtube"
                       href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1"
                     >
-                      <img src="img/thumbs/42-56.jpg" alt="image" />
+                      <img src="/img/thumbs/42-56.jpg" alt="image" />
                       <div
                         className="main"
-                        data-img-url="img/portfolio/1.jpg"
+                        data-img-url="/img/portfolio/1.jpg"
                       />
                     </a>
                   </div>
@@ -179,10 +179,10 @@ const Portfolio = () => {
                       className="popup-vimeo"
                       href="https://player.vimeo.com/video/337293658?autoplay=1"
                     >
-                      <img src="img/thumbs/42-34.jpg" alt="image" />
+                      <img src="/img/thumbs/42-34.jpg" alt="image" />
                       <div
                         className="main"
-                        data-img-url="img/portfolio/2.jpg"
+                        data-img-url="/img/portfolio/2.jpg"
                       />
                     </a>
                   </div>
@@ -203,10 +203,10 @@ const Portfolio = () => {
                       className="soundcloude_link mfp-iframe audio"
                       href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/471954807&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
                     >
-                      <img src="img/thumbs/42-56.jpg" alt="image" />
+                      <img src="/img/thumbs/42-56.jpg" alt="image" />
                       <div
                         className="main"
-                        data-img-url="img/portfolio/3.jpg"
+                        data-img-url="/img/portfolio/3.jpg"
                       />
                     </a>
                   </div>
@@ -223,11 +223,11 @@ const Portfolio = () => {
                     data-title="Scott Felix"
                     data-category="Popup"
                   >
-                    <a className="zoom" href="img/portfolio/5.jpg">
-                      <img src="img/thumbs/42-56.jpg" alt="image" />
+                    <a className="zoom" href="/img/portfolio/5.jpg">
+                      <img src="/img/thumbs/42-56.jpg" alt="image" />
                       <div
                         className="main"
-                        data-img-url="img/portfolio/5.jpg"
+                        data-img-url="/img/portfolio/5.jpg"
                       />
                     </a>
                   </div>
@@ -244,11 +244,11 @@ const Portfolio = () => {
                     data-title="Art Stone"
                     data-category="Popup"
                   >
-                    <a className="zoom" href="img/portfolio/4.jpg">
-                      <img src="img/thumbs/42-34.jpg" alt="image" />
+                    <a className="zoom" href="/img/portfolio/4.jpg">
+                      <img src="/img/thumbs/42-34.jpg" alt="image" />
                       <div
                         className="main"
-                        data-img-url="img/portfolio/4.jpg"
+                        data-img-url="/img/portfolio/4.jpg"
                       />
                     </a>
                   </div>
@@ -267,10 +267,10 @@ const Portfolio = () => {
                     data-category="Detail"
                   >
                     <a className="portfolio_popup" href="#">
-                      <img src="img/thumbs/42-34.jpg" alt="image" />
+                      <img src="/img/thumbs/42-34.jpg" alt="image" />
                       <div
                         className="main"
-                        data-img-url="img/portfolio/6.jpg"
+                        data-img-url="/img/portfolio/6.jpg"
                       />
                     </a>
                   </div>
@@ -284,10 +284,10 @@ const Portfolio = () => {
           </div>
         </div>
         <div className="brush_1 wow zoomIn" data-wow-duration="1s">
-          <img src="img/brushes/portfolio/1.png" alt="image" />
+          <img src="/img/brushes/portfolio/1.png" alt="image" />
         </div>
         <div className="brush_2 wow fadeInRight" data-wow-duration="1s">
-          <img src="img/brushes/portfolio/2.png" alt="image" />
+          <img src="/img/brushes/portfolio/2.png" alt="image" />
         </div>
       </div>
     </div>

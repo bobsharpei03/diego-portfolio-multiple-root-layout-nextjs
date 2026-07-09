@@ -16,7 +16,7 @@ const Home = ({ dark }) => {
   return (
     <div className="dizme_tm_section" id="home">
       <div className="dizme_tm_hero">
-        <div className="background" data-img-url={`img/slider/${dark ? 2 : 1}.jpg`}>
+        <div className="background" data-img-url={`/img/slider/${dark ? 2 : 1}.jpg`}>
           {/*  style={{ backgroundImage: `img/slider/${dark ? 2 : 1}.jpg` }} */}
         </div>
         <div className="container">

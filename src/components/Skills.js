@@ -67,7 +67,7 @@ const Skills = ({ dark }) => {
               </div>
             </div>
             <div className="right">
-              <img src={`img/skills/${dark ? 2 : 1}.jpg`} alt="image" />
+              <img src={`/img/skills/${dark ? 2 : 1}.jpg`} alt="image" />
             </div>
           </div>
         </div>

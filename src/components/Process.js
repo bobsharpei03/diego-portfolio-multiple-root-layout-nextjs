@@ -29,7 +29,7 @@ const Process = ({ dark }) => {
                         <span>
                           <img
                             className="brush"
-                            src={`img/brushes/process${dark ? "/dark" : ""}/${
+                            src={`/img/brushes/process${dark ? "/dark" : ""}/${
                               i + 1
                             }.png`}
                             alt="image"

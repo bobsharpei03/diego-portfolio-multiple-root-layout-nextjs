@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {};
+const nextConfig = {
+  output: 'export',
+  trailingSlash: true, // Recommended for clean routing on standard web servers
+  images: {
+    unoptimized: true, // Images must be unoptimized for static sites
+  },
+};
 
-//export default nextConfig;
-module.exports = nextConfig
+module.exports = nextConfig;

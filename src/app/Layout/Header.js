@@ -9,7 +9,7 @@ const Header = ({ logo }) => {
           <div className="logo">
             <Link href="/">
               {logo && (
-                <img src={logo ? logo : "img/logo/logo.png"} alt="image" />
+                <img src={logo ? logo : "/img/logo/logo.png"} alt="image" />
               )}
             </Link>
           </div>
@@ -28,7 +28,7 @@ const Header = ({ logo }) => {
                 <a href="#service">Technologies</a>
               </li>*/}
               <li>
-                <a href="#testimonial">Manger's Testimonial</a>
+                <a href="#testimonial">Colleagues' Testimonials</a>
               </li>
               {/*<li>
                 <a href="#blog">Blog</a>
@@ -41,8 +41,8 @@ const Header = ({ logo }) => {
           <div className="resume">
             <ul className="anchor_nav">
                 <li className="download_cv">
-                  <a href="img/cv/1.jpg" download="">
-                    <span>Download CV</span>
+                  <a href="/img/cv/Diego_Maquill.pdf" download="">
+                    <span>Download Resume</span>
                   </a>
                 </li>
             </ul>

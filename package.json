@@ -19,7 +19,9 @@
     "react-countup": "^6.5.0",
     "react-dom": "^18",
     "react-intersection-observer": "^10.0.3",
+    "react-toastify": "^11.1.0",
     "react-visibility-sensor": "^5.1.1",
+    "simple-react-validator": "^1.6.2",
     "swiper": "^11.0.0",
     "vanilla-tilt": "^1.8.1",
     "wowjs": "^1.1.3"

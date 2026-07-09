@@ -11,6 +11,7 @@ import Header from "../Layout/Header";
 import MobileMenu from "../Layout/MobileMenu";
 import PreLoader from "../Layout/PreLoader";
 import Progressbar from "../Layout/Progressbar";
+import ToastMessage from "../Layout/ToastMessage";
 import usePreloader from "../hooks/usePreloader";
 import useWow from "../hooks/useWow";
 import useCursor from "../hooks/useCursor";
@@ -66,19 +67,20 @@ export default function Layout ({ children , dark} )  {
     document.querySelector("body").classList.add("dark");
   }, []);
 
-  const logo = siteInfo?.logo?.[dark ? "dark" : "light"] ?? null;
+  //const logo = siteInfo?.logo?.[dark ? "dark" : "light"] ?? null;
 
   return (
     <Fragment>
+     <ToastMessage/>
       {/*<PreLoader />*/}
       <ImageView /> 
       <VideoPopup />
      {/* <div className="dizme_tm_all_wrap" data-magic-cursor="show">*/}
      <div className={`dizme_tm_all_wrap ${inter.className}`} data-magic-cursor="show">
        {/* <MobileMenu logo={siteInfo && siteInfo.logo && siteInfo.logo[dark ? "dark" : "light"]}/>*/}
-        <MobileMenu logo={logo} />
+        <MobileMenu logo={siteInfo?.logo} />
         {/*<Header logo={siteInfo && siteInfo.logo && siteInfo.logo[dark ? "dark" : "light"]} />*/}
-         <Header logo={logo} />
+         <Header logo={siteInfo?.logo} />
           {children}      
         <CopyRight
          brandName={siteInfo?.brandName}

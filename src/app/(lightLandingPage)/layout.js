@@ -20,6 +20,7 @@ import useScrollSpy from "../hooks/useScrollSpy";
 import useStickyNav from "../hooks/useStickNav";
 import useScrollProgress from "../hooks/useScrollProgress";
 import usePortfolioHover from "../hooks/usePortfolioHover";
+import ToastMessage from "../Layout/ToastMessage";
 import { fatchData } from "../../utilits";
 /*
 import {
@@ -75,17 +76,18 @@ export default function Layout({ children, dark }) {
       window.removeEventListener("scroll", scrollTop);
     };
   }, []); */
-  const logo = siteInfo?.logo?.[dark ? "dark" : "light"] ?? null;
+  //const logo = siteInfo?.logo?.[dark ? "dark" : "light"] ?? null;
 
   return (
     <Fragment>
+    <ToastMessage/>
     {/*}  <PreLoader />*/}
       <ImageView />
       <VideoPopup />
 
       <div className={`dizme_tm_all_wrap ${inter.className}`} data-magic-cursor="show">
-        <MobileMenu logo={logo} />
-        <Header logo={logo} />
+        <MobileMenu logo={siteInfo?.logo} />
+        <Header logo={siteInfo?.logo} />
 
         {children}
 

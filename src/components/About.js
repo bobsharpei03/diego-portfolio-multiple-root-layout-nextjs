@@ -20,7 +20,7 @@ const About = ({ dark }) => {
           <div className="wrapper">
             <div className="left">
               <div className="image">
-                <img src={`img/about/${dark ? 2 : 1}.jpg`} alt="image" />         
+                <img src={`/img/about/${dark ? 2 : 1}.jpg`} alt="image" />         
                 <div className="numbers project">
                   <div className="wrapper">
                     <h3>
@@ -67,10 +67,10 @@ const About = ({ dark }) => {
           </div>
         </div>
         <div className="brush_1 wow fadeInLeft" data-wow-duration="1s">
-          <img src="img/brushes/about/1.png" alt="image" />
+          <img src="/img/brushes/about/1.png" alt="image" />
         </div>
         <div className="brush_2 wow fadeInRight" data-wow-duration="1s">
-          <img src="img/brushes/about/2.png" alt="image" />
+          <img src="/img/brushes/about/2.png" alt="image" />
         </div>
       </div>
     </div>
