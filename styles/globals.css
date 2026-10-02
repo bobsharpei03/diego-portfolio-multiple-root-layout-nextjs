@@ -1,6 +1,6 @@
-@import 'swiper/swiper.min.css';
-/*@import 'swiper/modules/pagination/pagination.min.css';
-@import "swiper/react/swiper-react";*/
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
 
 @import "../public/css/plugins.css";
 @import "../public/css/dark.css";
@@ -15,7 +15,7 @@ html {
 }
 
 .owl-dots.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
-  margin-top: 64px;
+  margin-top: 2px;
 }
 
 span.swiper-pagination-bullet {
@@ -102,3 +102,109 @@ span.current {
   height: 600px;
   width: 100%;
 }
+/*
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 99999;
+  display: flex;
+  background: transparent;
+  overflow: hidden;
+}
+
+#preloader:before,
+#preloader:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #000;
+  transition: all 0.3s ease;
+}
+
+#preloader:before {
+  left: 0;
+}
+
+#preloader:after {
+  right: 0;
+}
+
+.loader_line {
+  margin: auto;
+  width: 1px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.8s ease;
+}
+
+.loader_line:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 0%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  animation: lineheight 1000ms ease-in-out forwards;
+}
+
+.loader_line:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #999;
+  transform: translateY(-100%);
+  animation: lineround 1200ms linear infinite;
+  animation-delay: 2000ms;
+}
+
+.preloaded .loader_line:after {
+  opacity: 0;
+}
+.preloaded .loader_line {
+   opacity: 0;
+  height: 100% !important;
+}
+#preloader.preloaded:before,
+#preloader.preloaded:after {
+  animation: preloadedzero 300ms ease-in-out 500ms forwards;
+}
+
+
+#preloader.hidden,
+#preloader.hidden:before,
+#preloader.hidden:after,
+#preloader.hidden .loader_line,
+#preloader.hidden .loader_line:before,
+#preloader.hidden .loader_line:after {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  display: none !important;
+}
+
+@keyframes preloadedzero {
+  0% { width: 50%; }
+  100% { width: 0%; }
+}
+
+@keyframes lineheight {
+  0% { height: 0%; }
+  100% { height: 100%; }
+}
+
+@keyframes lineround {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+  */

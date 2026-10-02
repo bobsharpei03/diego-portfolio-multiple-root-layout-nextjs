@@ -1,8 +1,5 @@
 {
-  "logo": {
-    "dark": "img/logo/dark.png",
-    "light": "img/logo/logo.png"
-  },
-  "brandName": "Westerly Staffing Inc.",
+  "logo": "/img/logo/logo.png",
+  "brandName": "Niagara Tech Solutions Inc.",
   "developerName" : "Diego Maquill"
 }

@@ -11,7 +11,7 @@ const MobileMenu = ({ logo }) => {
         <div className="mobile_in">
           <div className="logo">
             <a href="#">
-              <img src={logo ? logo : "img/logo/logo.png"} alt="image" />
+              <img src={logo ? logo : "/img/logo/logo.png"} alt="image" />
             </a>
           </div>
           <div className="trigger">
@@ -62,8 +62,8 @@ const MobileMenu = ({ logo }) => {
               </a>
             </li>
             <li className="download_cv">
-              <a href="img/cv/1.jpg" download="">
-                <span>Download CV</span>
+              <a href="/img/cv/Diego_Maquill.pdf" download="">
+                <span>Download Resume</span>
               </a>
             </li>
           </ul>

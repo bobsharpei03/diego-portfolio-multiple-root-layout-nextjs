@@ -87,7 +87,7 @@ const Service = ({ dark }) => {
                           <a className="dizme_tm_full_link" href="#" />
                           <img
                             className="popup_service_image"
-                            src="img/service/1.jpg"
+                            src="/img/service/1.jpg"
                             alt="image"
                           />
                         </div>
@@ -98,10 +98,10 @@ const Service = ({ dark }) => {
           </div>
         </div>
         <div className="brush_1 wow fadeInLeft" data-wow-duration="1s">
-          <img src="img/brushes/service/5.png" alt="image" />
+          <img src="/img/brushes/service/5.png" alt="image" />
         </div>
         <div className="brush_2 wow zoomIn" data-wow-duration="1s">
-          <img src="img/brushes/service/6.png" alt="image" />
+          <img src="/img/brushes/service/6.png" alt="image" />
         </div>
       </div>
     </div>

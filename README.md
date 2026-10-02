@@ -1,49 +1,71 @@
-## How to use multiple root layouts in Next.js App Router?
+# **Diego Portfolio — Multi‑Root Layout (Next.js 16)**
 
-The source code in this repository has been used to teach a Next.js topic. Please find the video here:
+A modern, high‑performance developer portfolio built with **Next.js 16**, featuring **multiple root layouts**, dynamic UI behaviors, custom animation hooks, and a modular architecture designed for scalability and clean separation of concerns.  
+This project demonstrates strong frontend engineering skills, architectural thinking, and production‑ready React/Next.js patterns.
 
-<a href="https://youtu.be/X9_XqeqWBR0" title="multiple-root-layout"><img src="Next.js-multiple-root-layouts.png" alt="image" height="auto" width="100%"/></a>
+---
 
-## 🫶 Support
-Liked it? You can show your support with a STAR(⭐).
+## 🚀 **Features**
 
-### Many Thanks to all the `Stargazers` who have supported this project with stars(⭐)
+- **Multiple Root Layouts**  
+  Separate layouts for different landing experiences (e.g., light/dark themes, alternate portfolio versions).
 
-[![Thanks to all stargazers](https://git-lister.onrender.com/api/stars/tapascript/nextjs-multiple-root-layout?limit=15)](https://github.com/tapascript/nextjs-multiple-root-layout/stargazers)
+- **Custom UI/UX Hooks**  
+  Includes reusable hooks for:
+  - Scroll progress  
+  - Sticky navigation  
+  - WOW.js animation triggers  
+  - Cursor effects  
+  - Image data binding  
+  - Skill progress animations  
+  - Portfolio hover interactions  
 
-### Sponsor My Work
+- **Dynamic Content Loading**  
+  Site metadata (logo, brand name, developer name) is loaded from `/static/siteSetting.json`.
 
-I am an independent educator who creates meaningful projects to teach programming. You can support me further by [sponsoring me on GitHub](https://github.com/sponsors/atapas).
+- **Modular Component Architecture**  
+  Components like `Header`, `MobileMenu`, `CopyRight`, `ImageView`, `VideoPopup`, and `ToastMessage` are cleanly separated.
 
+- **Static Export Ready**  
+  Configured with:
+  ```js
+  output: 'export',
+  trailingSlash: true,
+  images: { unoptimized: true }
 
-## Running the app locally
+  ⭐ Highlighted File: `functions/index.js`
+This file is a key part of your backend‑style utilities.
+It shows your ability to integrate Express, Nodemailer, and custom server logic inside a Next.js project.
+What it demonstrates to employers:
+• Understanding of server‑side logic inside a frontend‑focused project
+• Ability to build API‑like utilities without relying on Next.js API routes
+• Experience with email sending workflows
+• Clean separation of concerns (UI vs. backend helpers)
 
-First, install the dependencies
+🛠️ Tech Stack
+Frontend
+• Next.js 16
+• React 18
+• TailwindCSS
+• WOW.js animations
+• Swiper sliders
+• VanillaTilt
+• React Toastify
+• Intersection Observer
+• CountUp animations
+Backend / Utilities
+• Express
+• Nodemailer
+• CORS
+Build Tools
+• PostCSS
+• Autoprefixer
+• ESLint
+• Styled‑Components Babel plugin
 
-```bash
+📦 Installation
+
+git clone https://github.com/bobsharpei03/diego-portfolio-multiple-root-layout-nextjs.git
+cd diego-portfolio-multiple-root-layout-nextjs
 npm install
-# or
-yarn
-#or
-pnpm install
-```
-
-Then, run the development server:
-
-```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Full Stack With Next.js App Router](https://www.youtube.com/watch?v=VSB2h7mVhPg&list=PLIJrr73KDmRwz_7QUvQ9Az82aDM9I8L_8) - A Next.js App Router Playlist
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-# diego-portfolio-multiple-root-layout-nextjs

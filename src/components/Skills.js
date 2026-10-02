@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
-import { activeSkillProgress, fatchData } from "../utilits";
+import { fatchData } from "../utilits";
+import useSkillProgress from "../app/hooks/useSkillProgress";
 import dynamic from "next/dynamic";
 
 const Skills = ({ dark }) => {
   const [data, setData] = useState({});
   const [isBrowser, setIsBrowser] = useState(false);
 
-  useEffect( () => {
-    setData( fatchData("/static/info.json"));
-  }, []);
-  //
+  useSkillProgress(); //CORRECT
+
   useEffect(() => {
-    window.addEventListener("scroll", activeSkillProgress);
+    const myFunction = async () => {
+    setData( fatchData("/static/info.json"));
+  };
+  //
+  //useEffect(() => {
+    myFunction();
+    //window.addEventListener("scroll", useSkillProgress);
     setIsBrowser(true);
   }, []);
-   if(!isBrowser){
-    return null;
-  }
+
+  if(!isBrowser) return null;
 
   return (
     <div className="dizme_tm_section">
@@ -29,7 +33,7 @@ const Skills = ({ dark }) => {
                 data-wow-duration="1s"
                 data-align="left"
               >
-                <span>Design is Life</span>
+                <span>Coding is my Life</span>
                 <h3>I Develop Skills Regularly to Keep Me Update</h3>
                 <p>
                   Most common methods for designing websites that work well on
@@ -63,7 +67,7 @@ const Skills = ({ dark }) => {
               </div>
             </div>
             <div className="right">
-              <img src={`img/skills/${dark ? 2 : 1}.jpg`} alt="image" />
+              <img src={`/img/skills/${dark ? 2 : 1}.jpg`} alt="image" />
             </div>
           </div>
         </div>

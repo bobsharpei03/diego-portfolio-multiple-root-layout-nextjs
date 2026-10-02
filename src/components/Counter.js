@@ -1,3 +1,4 @@
+/*
 import CountUp from "react-countup";
 import ReactVisibilitySensor from "react-visibility-sensor";
 //import VisibilitySensor from 'react-visibility-sensor/visibility-sensor'
@@ -28,3 +29,26 @@ const Counter = ({ end, decimals }) => {
 
 //export default Counter;
 export default dynamic (()=> Promise.resolve(Counter), {ssr : false});
+*/
+"use client";
+
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
+
+const Counter = ({ end = 100, decimals = 0 }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
+  return (
+    <span ref={ref} className="count-text">
+      {inView ? (
+        <CountUp end={end} duration={3} decimals={decimals} />
+      ) : (
+        0
+      )}
+    </span>
+  );
+};
+
+export default Counter;

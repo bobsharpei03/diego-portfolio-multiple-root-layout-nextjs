@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { aTagClick, fatchData } from "../utilits";
+import { fatchData } from "../utilits";
+import aTagClick from "../app/hooks/useDisableEmptyLinks";
 import BlogPopUp from "./popup/BlogPopUp";
 import dynamic from "next/dynamic";
 
@@ -36,7 +37,7 @@ const News = () => {
                   <li className="wow fadeInUp" data-wow-duration="1s" key={i}>
                     <div className="list_inner">
                       <div className="image">
-                        <img src="img/thumbs/42-29.jpg" alt="image" />
+                        <img src="/img/thumbs/42-29.jpg" alt="image" />
                         <div
                           className="main"
                           data-img-url={blog && blog.img}
@@ -82,10 +83,10 @@ const News = () => {
           </div>
         </div>
         <div className="brush_1 wow zoomIn" data-wow-duration="1s">
-          <img src="img/brushes/news/1.png" alt="image" />
+          <img src="/img/brushes/news/1.png" alt="image" />
         </div>
         <div className="brush_2 wow zoomIn" data-wow-duration="1s">
-          <img src="img/brushes/news/2.png" alt="image" />
+          <img src="/img/brushes/news/2.png" alt="image" />
         </div>
       </div>
     </div>

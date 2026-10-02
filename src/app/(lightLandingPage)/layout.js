@@ -1,4 +1,4 @@
-"use client"; // This is a client component
+"use client";
 import "../../../styles/globals.css";
 import { Inter } from "next/font/google";
 import { Fragment, useEffect, useState } from "react";
@@ -10,46 +10,96 @@ import Header from "../Layout/Header";
 import MobileMenu from "../Layout/MobileMenu";
 import PreLoader from "../Layout/PreLoader";
 import Progressbar from "../Layout/Progressbar";
-import {aTagClick, dataImage, fatchData, scrollTop, scroll_, stickyNav, wowJsAnimation} from "../../utilits";
-
+import usePreloader from "../hooks/usePreloader";
+import useWow from "../hooks/useWow";
+import useCursor from "../hooks/useCursor";
+import useDisableEmptyLinks from "../hooks/useDisableEmptyLinks";
+import useSkillProgress from "../hooks/useSkillProgress";
+import useDataImage from "../hooks/useDataImage";
+import useScrollSpy from "../hooks/useScrollSpy";
+import useStickyNav from "../hooks/useStickNav";
+import useScrollProgress from "../hooks/useScrollProgress";
+import usePortfolioHover from "../hooks/usePortfolioHover";
+import ToastMessage from "../Layout/ToastMessage";
+import { fatchData } from "../../utilits";
+/*
+import {
+  aTagClick,
+  dataImage,
+  fatchData,
+  scrollTop,
+  scroll_,
+  stickyNav,
+  wowJsAnimation,
+} from "../../../utilits";
+*/
 const inter = Inter({ subsets: ["latin"] });
 
-const Layout = ({ children , dark} ) => {
-  const [siteInfo, setSiteInfo] = useState({});
-  const myFunction = async () => {
-    setSiteInfo( await fatchData("/static/siteSetting.json"));   
-  }
+export default function Layout({ children, dark }) {
+
+  //usePreloader();
+  useWow();
+  useCursor();
+  useDisableEmptyLinks();
+  useSkillProgress();
+  useDataImage();
+  useScrollSpy();
+  useStickyNav();
+  useScrollProgress();
+  usePortfolioHover();
+
+  const [siteInfo, setSiteInfo] = useState(null);
+
   useEffect(() => {
-    myFunction();
-    dataImage();
+    const loadSettings = async () => {
+      const data = await fatchData("/static/siteSetting.json");
+      setSiteInfo(data);
+    };
+
+    loadSettings();
+    //dataImage();
+    //UseDataImage();
   }, []);
+
+  /*
   useEffect(() => {
     wowJsAnimation();
     aTagClick();
+
     window.addEventListener("scroll", scroll_);
     window.addEventListener("scroll", stickyNav);
     window.addEventListener("scroll", scrollTop);
-  }, []);
+
+    return () => {
+      window.removeEventListener("scroll", scroll_);
+      window.removeEventListener("scroll", stickyNav);
+      window.removeEventListener("scroll", scrollTop);
+    };
+  }, []); */
+  //const logo = siteInfo?.logo?.[dark ? "dark" : "light"] ?? null;
+
   return (
-   <html lang="en">
-    <body className={inter.className}>
     <Fragment>
-      <PreLoader />
-      <ImageView /> 
+    <ToastMessage/>
+    {/*}  <PreLoader />*/}
+      <ImageView />
       <VideoPopup />
-      <div className="dizme_tm_all_wrap" data-magic-cursor="show">
-        <MobileMenu logo={siteInfo && siteInfo.logo && siteInfo.logo[dark ? "dark" : "light"]}/>
-        {/*<MobileMenu logo={siteInfo && siteInfo.logo && siteInfo.logo[light ? "light" : "light"]}/>*/}
-        <Header logo={siteInfo && siteInfo.logo && siteInfo.logo[dark ? "dark" : "light"]}/>
-        {/*<Header logo={siteInfo && siteInfo.logo && siteInfo.logo[light ? "light" : "light"]}/>*/}
-             {children}      
-        <CopyRight brandName={siteInfo && siteInfo.brandName} developerName={siteInfo && siteInfo.developerName} />
-        <Cursor /> 
-        <Progressbar />
-      </div>
+
+      <div className={`dizme_tm_all_wrap ${inter.className}`} data-magic-cursor="show">
+        <MobileMenu logo={siteInfo?.logo} />
+        <Header logo={siteInfo?.logo} />
+
+        {children}
+
+        <CopyRight
+          brandName={siteInfo?.brandName}
+          developerName={siteInfo?.developerName}
+        />
+
+        {/*<Cursor />*/}
+       
+        {/*<Progressbar />*/}
+             </div>
     </Fragment>
-    </body>
-</html>
-  );  
-};
-export default Layout;
+  );
+}

@@ -1,31 +1,36 @@
 "use client"; // This is a client component
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { Fragment } from "react";
-import Cursor from "./Layout/Cursor";
-import PreLoader from "./Layout/PreLoader";
-import NestedLayout from '../(lightLandingPage)/layout'
+import Cursor from "../Layout/Cursor";
+import PreLoader from "../Layout/PreLoader";
+//import NestedLayout from '../../(lightLandingPage)/layout'
 
 export default function Home() {
+  useEffect(()=>{
+    document.body.classList.remove("dark");
+  },[]);
+  
   return (
     <Fragment>
       <Head>
         <title>Diego Maquill | Intro</title>
       </Head>
-      <PreLoader />
+      {/*<PreLoader />*/}
       <div className="dizme_tm_all_wrap" data-magic-cursor="show">
         <div className="dizme_tm_intro">
           <div className="dizme_tm_intro_fixed_price">
             <span className="anim" />
             <span className="anim" />
             <span className="anim" />
-            <a href="#" target="_blank" className="pricing-info anim">
+            {/*<a href="#" target="_blank" className="pricing-info anim">
               -20%
-            </a>
+            </a>*/}
           </div>
           <div className="short_info">
-            <img src="img/logo/logo.png" alt="image" />
+            <img src="/img/logo/logo.png" alt="image" />
             <h3>Welcome to my Personal Portfolio</h3>
           </div>
           <span className="intro_line" />
@@ -34,14 +39,14 @@ export default function Home() {
           <div className="demos">
             <div className="left">
               <div className="desc">
-                <img src="img/intro/light.png" alt="image" />
+                <img src="/img/intro/light.png" alt="image" />
                 <h3 className="title">My Light Portfolio</h3>
               </div>
               <Link className="intro_link" href="/lightLandingPage" ></Link>
             </div>
             <div className="right">
               <div className="desc">
-                <img src="img/intro/dark.png" alt="image" />
+                <img src="/img/intro/dark.png" alt="image" />
                 <h3 className="title">My Dark Portfolio</h3>
               </div>
               <Link className="intro_link" href="/darkLandingPage"></Link>

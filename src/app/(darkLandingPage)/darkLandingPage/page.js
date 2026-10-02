@@ -17,42 +17,43 @@ const Home = dynamic(() => import("../../../components/Home"), {
 const Portfolio = dynamic(() => import("../../../components/Portfolio"), {
   ssr: false,
 });
-const Layout = dynamic(() => import("../layout"), { ssr: false,});
+//const Layout = dynamic(() => import("../layout"), { ssr: false,});
 
 const Page = () => {
   return (
-    <Layout dark>
-      <Head>
+    <>
+    <Head>
         <title>Diego Maquill | Home</title>
       </Head>   
       <Home dark />
       {/* HERO */}
       {/* PROCESS */}
-      <Process dark />
       {/* /PROCESS */}
       {/* ABOUT */}
       <About dark />
       {/* /ABOUT */}
       {/* PORTFOLIO */}
-      <Portfolio />
+      <Process dark />
+      {/*<Portfolio />*/}
       {/* /PORTFOLIO */}
       {/* SKILLS */}
       <Skills dark />
+      <Partners dark />
       {/* /SKILLS */}
       {/* SERVICES */}
-      <Service dark />
+      {/*<Service dark />*/}
       {/* /SERVICES */}
       {/* TESTIMONIALS */}
-      <Testimonial />
+      <Testimonial dark />
       {/* /TESTIMONIALS */}
       {/* PARTNERS */}
-      <Partners dark />
+      
       {/* /PARTNERS */}
       {/* NEWS */}
-      <News />
-      <Newsletter />
-      <Contact />
-    </Layout>
+      {/*<News />*/}
+      {/*<Newsletter />*/}
+      <Contact dark/>
+    </>
   );
 };
 export default Page;

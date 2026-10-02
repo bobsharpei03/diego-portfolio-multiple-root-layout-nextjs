@@ -1,7 +1,7 @@
 {
   "name": "Diego Maquill",
-  "address": "in Northeast region of the United States",
-  "bio": "I'm a Full Stack Developer with experience as a Solution Architect. I'm good on taking the lead, as well as collaborating with stake holders and fellow developers. Scroll down to learn about me and my work",
+  "address": "The Northeast Region of the United States and beyond",
+  "bio": "Developing functional and efficient code is my goal and passion. I strive to create multi platform automation tools that enhances user experience and drive up sales for your business. I'm a excelent team player not affraid to lead when require, but can also partnership with othe solution architechs for support and advise. Click the the navigation menu titles or scroll down to learn about me and my work",
   "mainSkill": "Full Stack Developer",
   "img": "/img/slider/avatar.jpg",
   "skills": [
@@ -31,8 +31,11 @@
     }
   ],
   "social": [  
-    { "name": "linkedin", "icon": "icon-linkedin-1", "url": "#" }
-  ],
+    {
+      "name": "linkedin",
+      "icon": "icon-linkedin-1",
+      "url": "#"
+    }],
   "contact": {
     "address": "PO BOX 858 Buffalo NY 14205",
     "email": "diegomaquill@westerlystaffing.com",
